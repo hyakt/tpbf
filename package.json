@@ -1,0 +1,11 @@
+{
+  "name": "total-population-by-prefecture",
+  "version": "0.0.1",
+  "private": true,
+  "description": "都道府県別の総人口推移グラフを表示するSPA",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hyakt <hyakt0@gmail.com>",
+  "license": "UNLICENSED"
+}
