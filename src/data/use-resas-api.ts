@@ -1,6 +1,12 @@
-import useSWR from 'swr'
+import useSWR, { SWRResponse } from 'swr'
 
-export const useResasAPI = (name: string) => {
+type ResasAPIResult = {
+  result: Record<string, unknown>[]
+}
+
+export const useResasAPI = (
+  name: string
+): SWRResponse<ResasAPIResult, unknown> => {
   const data = useSWR(`/api/resas/${name}`)
   return data
 }
