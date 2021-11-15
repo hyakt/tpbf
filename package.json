@@ -9,11 +9,11 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint:check": "next lint",
-    "lint:fix": "next lint --fix",
-    "format:check": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "type:check": "tsc"
+    "check:tsc": "tsc",
+    "check:next-lint": "next lint",
+    "check:prettier": "prettier --check .",
+    "format:next-lint": "next lint --fix",
+    "format:prettier": "prettier --write ."
   },
   "author": "hyakt <hyakt0@gmail.com>",
   "license": "UNLICENSED",
