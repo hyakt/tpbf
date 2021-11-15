@@ -1,7 +1,7 @@
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { renderHook } from '@testing-library/react-hooks'
-import { usePrefecture } from '../use-prefectures'
+import { usePrefectures } from '../use-prefectures'
 import { SWRWrapper } from '../../../../../../jest/swr-wrapper'
 
 const apiResponseJson = {
@@ -29,13 +29,13 @@ describe('usePrefectures', () => {
   afterEach(() => mockServer.resetHandlers())
 
   it('fetch values', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => usePrefecture(), {
+    const { result, waitForNextUpdate } = renderHook(() => usePrefectures(), {
       wrapper: SWRWrapper,
     })
 
     // first render
     expect(result.current).toStrictEqual({
-      data: undefined,
+      prefectures: [],
       isLoading: true,
       isError: undefined,
     })
@@ -45,7 +45,7 @@ describe('usePrefectures', () => {
 
     // second render
     expect(result.current).toStrictEqual({
-      data: apiResponseJson,
+      prefectures: ['北海道', '青森県'],
       isLoading: false,
       isError: undefined,
     })

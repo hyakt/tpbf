@@ -5,13 +5,13 @@ type ResasAPIResult = {
   result: { prefCode: number; prefName: string }[]
 }
 
-export const usePrefecture = () => {
+export const usePrefectures = () => {
   const { data, error } = useSWR<ResasAPIResult, unknown>(
     `/api/resas/prefectures`
   )
 
   return {
-    data,
+    prefectures: (data?.result || []).map((e) => e.prefName),
     isLoading: !error && !data,
     isError: error,
   }
