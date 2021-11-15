@@ -3,5 +3,5 @@ module.exports = {
     `next lint --fix --file ${filenames
       .map((file) => file.split(process.cwd())[1])
       .join(' --file ')}`,
-  'src/**/*.{ts?(x),css,md}': 'prettier --write',
+  'src/**/*.{ts?(x),css,md,scss}': 'prettier --write',
 }
