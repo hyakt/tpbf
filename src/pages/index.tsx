@@ -1,7 +1,7 @@
-import { Prefectures } from '../components/models/Prefectures'
+import { TotalPopulationChart } from '../components/models/total-population-chart'
 
 const HomePage = () => {
-  return <Prefectures />
+  return <TotalPopulationChart />
 }
 
 export default HomePage
