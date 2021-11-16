@@ -4,5 +4,5 @@ module.exports = {
       .map((file) => file.split(process.cwd())[1])
       .join(' --file ')}`,
   'src/**/*.{ts?(x),md,scss}': 'prettier --write',
-  'src/**/*.{scss}': 'stylelint --fix',
+  'src/**/*.scss': 'stylelint --fix',
 }
