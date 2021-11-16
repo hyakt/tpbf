@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 const resas = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { API_RESAS_ENDPOINT, API_RESAS_KEY } = process.env
+  const { API_RESAS_URL, API_RESAS_KEY } = process.env
   const { name } = req.query
   try {
-    const response = await fetch(`${API_RESAS_ENDPOINT}/${name}`, {
+    const response = await fetch(`${API_RESAS_URL}/api/v1/${name}`, {
       headers: {
         'X-API-KEY': API_RESAS_KEY,
       },

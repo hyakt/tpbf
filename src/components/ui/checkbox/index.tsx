@@ -6,7 +6,7 @@ export const Checkbox: React.FC<CheckboxProps> = (props) => {
   const { id, children, checked, onChange } = props
 
   return (
-    <label className={styles.label} htmlFor={id}>
+    <label data-testid="ui-checkbox" className={styles.label} htmlFor={id}>
       <input
         data-testid="ui-checkbox-input"
         type="checkbox"
