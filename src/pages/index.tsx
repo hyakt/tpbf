@@ -1,11 +1,7 @@
-import useSWR from 'swr'
-import { useResasAPI } from '../data/use-resas-api'
+import { Prefectures } from '../components/models/Prefectures'
 
 const HomePage = () => {
-  const { data } = useResasAPI('prefectures')
-  console.log(data)
-
-  return <div>This is index page</div>
+  return <Prefectures />
 }
 
 export default HomePage
