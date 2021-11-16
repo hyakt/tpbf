@@ -28,7 +28,7 @@ describe('usePrefectures', () => {
   afterAll(() => mockServer.close())
   afterEach(() => mockServer.resetHandlers())
 
-  it('fetch values', async () => {
+  it('return values', async () => {
     const { result, waitForNextUpdate } = renderHook(() => usePrefectures(), {
       wrapper: SWRWrapper,
     })
