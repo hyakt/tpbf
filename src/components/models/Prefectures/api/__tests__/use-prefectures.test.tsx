@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { usePrefectures } from '../use-prefectures'
 import { SWRWrapper } from '../../../../../../jest/swr-wrapper'
-import { mockServer } from '../../__mocks__/resas'
+import { mockServer, prefecturesResponse } from '../../__mocks__/resas'
 
 describe('usePrefectures', () => {
   beforeAll(() => mockServer.listen())
@@ -15,7 +15,7 @@ describe('usePrefectures', () => {
 
     // first render
     expect(result.current).toStrictEqual({
-      prefectures: [],
+      data: undefined,
       isLoading: true,
       isError: undefined,
     })
@@ -25,7 +25,7 @@ describe('usePrefectures', () => {
 
     // second render
     expect(result.current).toStrictEqual({
-      prefectures: ['北海道', '青森県'],
+      data: prefecturesResponse,
       isLoading: false,
       isError: undefined,
     })

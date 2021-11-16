@@ -1,28 +1,35 @@
 import { usePrefectures } from './api/use-prefectures'
-import { usePrefectureStateForCheckboxes } from './hooks/use-prefecture-state-for-checkboxes'
+import { usePrefectureStatesForCheckboxes } from './hooks/use-prefecture-states-for-checkboxes'
 import { Checkbox } from '../../ui/checkbox'
 
 export const Prefectures: React.VFC = () => {
-  const { prefectures, isError, isLoading } = usePrefectures()
-  const { prefecturesState, setPrefecturesState } =
-    usePrefectureStateForCheckboxes(prefectures)
+  const { data, isError, isLoading } = usePrefectures()
+  const { prefecturesStates, setPrefecturesStates } =
+    usePrefectureStatesForCheckboxes(data)
 
   if (isLoading) return <div>loading...</div>
   if (isError) return <div>error!</div>
 
   return (
     <div data-testid="prefectures">
-      {Object.entries(prefecturesState).map(([prefName, checked]) => {
+      {Object.values(prefecturesStates).map((prefectureState) => {
+        const { prefName, prefCode, checked } = prefectureState
         return (
           <Checkbox
-            key={prefName}
+            key={prefCode}
             id={prefName}
             checked={checked}
             onChange={() => {
-              setPrefecturesState((prev) => ({
-                ...prev,
-                [prefName]: !prev[prefName],
-              }))
+              setPrefecturesStates((prev) => {
+                const prevPrefectureState = prev[prefName]
+                return {
+                  ...prev,
+                  [prefName]: {
+                    ...prevPrefectureState,
+                    checked: !checked,
+                  },
+                }
+              })
             }}
           >
             {prefName}

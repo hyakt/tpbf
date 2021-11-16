@@ -1,8 +1,7 @@
-import { useMemo } from 'react'
 import useSWR from 'swr'
 
 // ref: https://opendata.resas-portal.go.jp/docs/api/v1/prefectures.html
-type ResasAPIResult = {
+export type ResasAPIResult = {
   result: { prefCode: number; prefName: string }[]
 }
 
@@ -11,13 +10,8 @@ export const usePrefectures = () => {
     `/api/resas/prefectures`
   )
 
-  const prefectures = useMemo(
-    () => (data?.result || []).map((e) => e.prefName),
-    [data]
-  )
-
   return {
-    prefectures,
+    data,
     isLoading: !error && !data,
     isError: error,
   }
