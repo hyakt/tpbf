@@ -2,7 +2,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFiles: ['./jest/setup.js'],
   moduleNameMapper: {
-    '\\.(css|scss)$': './jest/style-mock.js',
+    '\\.(css|scss)$': '<rootDir>/jest/style-mock.js',
   },
   transform: {
     '.+\\.(t|j)sx?$': [
