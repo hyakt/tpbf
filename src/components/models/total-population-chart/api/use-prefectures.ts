@@ -1,4 +1,4 @@
-import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 export type Prefecture = {
   prefCode: number
@@ -11,7 +11,9 @@ export type APIResult = {
 }
 
 export const usePrefectures = () => {
-  const { data, error } = useSWR<APIResult, unknown>(`/api/resas/prefectures`)
+  const { data, error } = useSWRImmutable<APIResult, unknown>(
+    `/api/resas/prefectures`
+  )
 
   return {
     data,
