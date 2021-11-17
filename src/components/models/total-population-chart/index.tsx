@@ -4,6 +4,8 @@ import { usePrefectureStatesForCheckboxes } from './hooks/use-prefecture-states-
 import { PopulationChart } from '../../ui/population-chart'
 import { PrefectureCheckboxes } from './prefecture-checkboxes'
 
+import styles from './style/index.module.scss'
+
 export const TotalPopulationChart: React.VFC = () => {
   const { data: prefectureData, isError, isLoading } = usePrefectures()
   const { prefectureStates, setPrefectureStates } =
@@ -13,12 +15,17 @@ export const TotalPopulationChart: React.VFC = () => {
   if (isError) return <div>error</div>
 
   return (
-    <div data-testid="total-population-chart">
+    <div data-testid="total-population-chart" className={styles['container']}>
       <div data-testid="prefectures">
-        <PrefectureCheckboxes
-          prefectureStates={prefectureStates}
-          setPrefecturesStates={setPrefectureStates}
-        />
+        <div className={styles['prefectures']}>
+          <div className={styles['label']}>都道府県</div>
+          <div className={styles['checkboxes']}>
+            <PrefectureCheckboxes
+              prefectureStates={prefectureStates}
+              setPrefecturesStates={setPrefectureStates}
+            />
+          </div>
+        </div>
       </div>
       <div data-testid="chart">
         <PopulationChart

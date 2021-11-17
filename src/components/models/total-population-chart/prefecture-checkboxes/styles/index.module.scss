@@ -1,6 +1,7 @@
 .prefecture-container {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  place-content: center;
 }
 
 .prefecture-checkbox {

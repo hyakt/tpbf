@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.prefectures {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .label {
+    font-weight: bold;
+  }
+
+  .checkboxes {
+    padding: 8px;
+  }
+}

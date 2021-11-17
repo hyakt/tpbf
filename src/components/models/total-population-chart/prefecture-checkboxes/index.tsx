@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { Checkbox } from '../../../ui/checkbox'
 import { fetchPopulationTrends } from '../api/fetch-population-trends'
 import { PrefectureStates } from '../hooks/use-prefecture-states-for-checkboxes'
+import styles from './styles/index.module.scss'
 
 type PrefectureCheckboxesProps = {
   prefectureStates: PrefectureStates
@@ -41,18 +42,15 @@ export const PrefectureCheckboxes: React.VFC<PrefectureCheckboxesProps> = ({
   )
 
   return (
-    <div>
+    <div className={styles['prefecture-container']}>
       {prefectureStates.map((prefectureState) => {
         const { prefName, prefCode, checked } = prefectureState
         return (
-          <Checkbox
-            key={prefCode}
-            id={prefName}
-            checked={checked}
-            onChange={handleChange}
-          >
-            {prefName}
-          </Checkbox>
+          <div key={prefCode} className={styles['prefecture-checkbox']}>
+            <Checkbox id={prefName} checked={checked} onChange={handleChange}>
+              {prefName}
+            </Checkbox>
+          </div>
         )
       })}
     </div>
