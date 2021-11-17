@@ -37,7 +37,7 @@ export const PrefectureCheckboxes: React.VFC<PrefectureCheckboxesProps> = ({
         return newPrefectureState
       })
     },
-    [prefectureStates]
+    [prefectureStates, setPrefecturesStates]
   )
 
   return (
