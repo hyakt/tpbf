@@ -1,6 +1,6 @@
 # total-population-by-prefecture
 
-https://tpbp-hyakt.vercel.app/
+https://total-population-by-prefecture.vercel.app/
 
 ## セットアップ
 1. `node.js`をインストールする。バージョンは`package.json`を確認してください。
