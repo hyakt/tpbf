@@ -64,7 +64,9 @@ export const PopulationChart: React.VFC<PopulationChartProps> = ({
 }) => {
   const series: SeriesOptionsType[] = populations.map((population) => ({
     type: 'line',
-    ...population,
+    name: population.name,
+    // そのまま配列を渡すと参照先を書き換える場合があるようなので新しく配列を作成する
+    data: [...population.data],
   }))
 
   return (
