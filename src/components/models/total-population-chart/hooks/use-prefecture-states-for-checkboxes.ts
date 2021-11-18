@@ -12,7 +12,8 @@ export const usePrefectureStatesForCheckboxes = (data: APIResult) => {
   const [prefectureStates, setPrefectureStates] = useState<PrefectureStates>([])
 
   useEffect(() => {
-    const states = (data?.result || []).map((e) => ({
+    if (!data) return
+    const states = data.result.map((e) => ({
       prefCode: e.prefCode,
       prefName: e.prefName,
       checked: false,
