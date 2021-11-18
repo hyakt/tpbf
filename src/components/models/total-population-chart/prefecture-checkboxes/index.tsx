@@ -16,29 +16,19 @@ export const PrefectureCheckboxes: React.VFC<PrefectureCheckboxesProps> = ({
   setPrefecturesStates,
 }) => {
   const handleChange = useCallback(
-    async (e: ChangeEvent<HTMLInputElement>) => {
-      const { prefCode, populationTrends } = prefectureStates.find(
-        (prefectureState) => prefectureState.prefName === e.target.id
-      )
-
-      const newPopulationTrends = populationTrends
-        ? populationTrends
-        : await fetchPopulationTrends({
-            prefCode,
-          })
-
+    (e: ChangeEvent<HTMLInputElement>) => {
       setPrefecturesStates((prev) => {
         const newPrefectureState = [...prev]
-        const index = prev.findIndex((e) => prefCode === e.prefCode)
+        const index = prev.findIndex(
+          (prefectureState) => prefectureState.prefName === e.target.id
+        )
         const target = prev[index]
         target.checked = !target.checked
-        target.populationTrends = newPopulationTrends
         newPrefectureState[index] = target
-
         return newPrefectureState
       })
     },
-    [prefectureStates, setPrefecturesStates]
+    [setPrefecturesStates]
   )
 
   return (
