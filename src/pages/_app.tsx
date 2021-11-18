@@ -1,9 +1,21 @@
 import type { AppProps } from 'next/app'
 import { SWRProvider } from '../lib/swc'
 import 'modern-normalize/modern-normalize.css'
+import { NextPage } from 'next'
+import { ReactElement, ReactNode } from 'react'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  return (
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? ((page) => page)
+
+  return getLayout(
     <SWRProvider>
       <Component {...pageProps} />
     </SWRProvider>

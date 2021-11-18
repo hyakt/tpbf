@@ -1,13 +1,14 @@
-import { NextPage } from 'next'
+import { ReactElement } from 'react'
 import { SWRConfig } from 'swr'
 import { TotalPopulationChart } from '../components/models/total-population-chart'
+import { Layout } from '../components/ui/layout'
 import { fetchResas } from '../data/fetch-resas'
 
 type Props = {
   fallback: Record<string, unknown>
 }
 
-const HomePage: NextPage<Props> = ({ fallback }) => {
+const HomePage = ({ fallback }: Props) => {
   return (
     <SWRConfig value={{ fallback }}>
       <TotalPopulationChart />
@@ -26,6 +27,10 @@ export const getStaticProps = async () => {
       },
     },
   }
+}
+
+HomePage.getLayout = (page: ReactElement) => {
+  return <Layout headerProps={{ title: '総人口の推移' }}>{page}</Layout>
 }
 
 export default HomePage
