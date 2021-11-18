@@ -1,4 +1,6 @@
-# tota-population-by-prefecture
+# total-population-by-prefecture
+
+https://tpbp-cqiwpmlea-hyakt.vercel.app/
 
 ## セットアップ
 1. `node.js`をインストールする。バージョンは`package.json`を確認してください。
