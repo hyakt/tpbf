@@ -42,7 +42,10 @@ export const PrefectureCheckboxes: React.VFC<PrefectureCheckboxesProps> = ({
   )
 
   return (
-    <div className={styles['prefecture-container']}>
+    <div
+      className={styles['prefecture-container']}
+      data-testid="prefecture-checkbox"
+    >
       {prefectureStates.map((prefectureState) => {
         const { prefName, prefCode, checked } = prefectureState
         return (
