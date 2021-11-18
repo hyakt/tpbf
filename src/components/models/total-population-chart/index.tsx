@@ -18,7 +18,7 @@ export const TotalPopulationChart: React.VFC = () => {
     <div data-testid="total-population-chart" className={styles['container']}>
       <div data-testid="prefectures">
         <div className={styles['prefectures']}>
-          <div className={styles['label']}>都道府県</div>
+          <h4 className={styles['label']}>都道府県</h4>
           <div className={styles['checkboxes']}>
             <PrefectureCheckboxes
               prefectureStates={prefectureStates}

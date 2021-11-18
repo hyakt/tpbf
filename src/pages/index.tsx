@@ -30,7 +30,11 @@ export const getStaticProps = async () => {
 }
 
 HomePage.getLayout = (page: ReactElement) => {
-  return <Layout headerProps={{ title: '総人口の推移' }}>{page}</Layout>
+  return (
+    <Layout headerProps={{ title: '都道府県別の総人口推移グラフ' }}>
+      {page}
+    </Layout>
+  )
 }
 
 export default HomePage
