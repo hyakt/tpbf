@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { SWRProvider } from '../lib/swc'
+import { SWRProvider } from '../lib/swr'
 import 'modern-normalize/modern-normalize.css'
 import { NextPage } from 'next'
 import { ReactElement, ReactNode } from 'react'

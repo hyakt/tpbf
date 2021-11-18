@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react'
 import useSWR from 'swr'
-import { GenerateSWRProvider } from '../swc'
+import { GenerateSWRProvider } from '../swr'
 
 it('use the fetcher configured in config when using `useSWR`', async () => {
   const MockComponent = () => {
