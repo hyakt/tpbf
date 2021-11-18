@@ -1,5 +1,4 @@
 # tota-population-by-prefecture
-都道府県別の総人口推移グラフを表示するSPA
 
 ## セットアップ
 1. `node.js`をインストールする。バージョンは`package.json`を確認してください。
